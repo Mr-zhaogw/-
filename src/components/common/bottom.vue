@@ -41,6 +41,7 @@
 	.bottom{
 		padding: 100px 0;
 		background:#fff;
+		overflow: hidden;
 	}
 	.bottom ul li{
 		float:left;

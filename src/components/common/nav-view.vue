@@ -1,5 +1,5 @@
 <template>
-	<div class="nav-view">
+	<div class="nav-view" id="nav-view">
 		<div class="nav">
 			<div class="r fn-clear">
 				<div class="logo">
@@ -43,13 +43,44 @@
 				activeIndex2: '1'
 			}
 		},
+		mounted(){
+			window.addEventListener('scroll',function(){
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				var divDome = document.getElementById('nav-view')
+				if(scrollTop>0){
+					divDome.className = 'fixed'
+				}else{
+					divDome.className = ''
+				}
+			})
+		}
 	}
 </script>
 <style>
- .nav-view .nav{
- 		padding:15px 0;
- 		background:rgb(248,248,248);
+  #nav-view{
+  	position: relative;
+  	z-index: 1;
+  	/*transition: all .6s cubic-bezier(.215, .61, .355, 1) 0s;*/
   }
+ #nav-view .nav{
+ 		padding:20px 0;
+ 		background:rgb(248,248,248);
+ 		width:100%;
+ 		transition: all .6s cubic-bezier(.215, .61, .355, 1) 0s;
+  }
+  .fixed .nav{
+  	background:#fff !important;
+  	padding: 10px 0 !important;
+  }
+  .fixed .nav .nav-text .el-menu{
+  	background:#fff !important;
+  }
+  .fixed{
+   	position: fixed !important;
+   	width:100%;
+   	background:#fff;
+   	box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+   }
 	.nav .logo{
 		width:120px;
 		height: 38px;
@@ -59,14 +90,14 @@
 		width:100%;
 		height: auto;
 	}
-	.nav-view .nav .nav-text{
+	#nav-view .nav .nav-text{
 		float: left;
 		margin-left: 200px;
 	}
-	.nav-view .nav .loginBtn{
+	#nav-view .nav .loginBtn{
 		float: right;
 	}
-	.nav-view .nav .loginBtn a{
+	#nav-view .nav .loginBtn a{
 		font-size: 13px;
 		width:60px;
 		height: 28px;
@@ -78,23 +109,23 @@
 		font-weight: 300;
 		margin-left:10px;
 	}
-	.nav-view .nav .loginBtn a:hover{
+	#nav-view .nav .loginBtn a:hover{
 		text-decoration: none;
 	}
-	.nav-view .nav .loginBtn a.btn1{
+	#nav-view .nav .loginBtn a.btn1{
 		background:#46be8a;
 	}
-	.nav-view .nav .loginBtn a.btn2{
+	#nav-view .nav .loginBtn a.btn2{
 		background:#f96868;
 	}
-	.nav-view .nav .nav-text .el-menu{
+	#nav-view .nav .nav-text .el-menu{
 		background:rgb(248,248,248);
 	}
-	.nav-view .nav .nav-text .el-menu--horizontal .el-menu-item{
+	#nav-view .nav .nav-text .el-menu--horizontal .el-menu-item{
 		height: 40px;
 		line-height: 40px;
 	}
-	.nav-view .nav .nav-text .el-menu--horizontal .el-submenu .el-submenu__title{
+	#nav-view .nav .nav-text .el-menu--horizontal .el-submenu .el-submenu__title{
 		height: 40px !important;
 		line-height: 40px !important;
 	}
