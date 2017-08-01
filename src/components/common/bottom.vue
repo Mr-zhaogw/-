@@ -1,6 +1,6 @@
 <template>
 	<div class="bottom">
-		<div class="r">
+		<div class="r" style="width:1180px;">
 			<ul>
 				<li class="bottom-first">
 					<h2>联系我们</h2>
