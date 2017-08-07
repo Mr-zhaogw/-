@@ -7,8 +7,8 @@
 				</div>
 				<div class="nav-text">
 						<el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal">
-							  <el-menu-item index="1">首页</el-menu-item>
-							  <el-menu-item index="5">免费试用</el-menu-item>
+							  <el-menu-item index="1"><router-link :to="{name:'home'}">首页</router-link></el-menu-item>
+							  <el-menu-item index="5"><router-link :to="{name:'detail'}">免费试用</router-link></el-menu-item>
 							  <el-menu-item index="6">推荐案例</el-menu-item>
 							  <el-menu-item index="7">活动/价格</el-menu-item>
 							  <el-submenu index="2">
@@ -59,17 +59,17 @@
 <style>
   #nav-view{
   	position: relative;
-  	z-index: 1;
+  	z-index: 10;
   	/*transition: all .6s cubic-bezier(.215, .61, .355, 1) 0s;*/
   }
  #nav-view .nav{
  		padding:20px 0;
- 		background:rgb(248,248,248);
+ 		/*background:rgb(248,248,248);*/
  		width:100%;
  		transition: all .6s cubic-bezier(.215, .61, .355, 1) 0s;
   }
   .fixed .nav{
-  	background:#fff !important;
+  	/*background:#fff !important;*/
   	padding: 10px 0 !important;
   }
   .fixed .nav .nav-text .el-menu{
@@ -80,6 +80,12 @@
    	width:100%;
    	background:#fff;
    	box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+   }
+   .fixed .nav-text .el-menu .el-menu-item:hover{
+   	background:#FFF;
+   }
+    .fixed .nav-text .el-menu .el-submenu:hover .el-submenu__title{
+   	background:#FFF;
    }
 	.nav .logo{
 		width:120px;

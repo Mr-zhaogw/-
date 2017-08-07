@@ -1,7 +1,7 @@
 <template>
 	<div class="bottom">
-		<div class="r" style="width:1180px;">
-			<ul>
+		<div class="r bot-text" style="width:1180px;">
+			<ul class="fn-clear">
 				<li class="bottom-first">
 					<h2>联系我们</h2>
 					<span>Contact Us</span>
@@ -25,6 +25,11 @@
 				</li>
 			</ul>
 		</div>
+		<div class="copy">
+			<div class="r" style="width:1180px;">
+				<P>COPYRIGHT (©) 2017  魔艺极速建站 - UEMO网站模板- 优艺客旗下品牌 - 网站模板 - 智能建站 - 企业建站. </P>
+			</div>
+		</div>
 	</div>
 </template>
 <script>
@@ -39,8 +44,18 @@
 </script>
 <style>
 	.bottom{
-		padding: 100px 0;
+		background:#f8f8f8;
+	}
+	.bottom .copy{
 		background:#fff;
+		padding:10px 0;
+	}
+	.bottom .copy p{
+		text-align: center;
+		color:#9e9e9e;
+	}
+	.bottom .bot-text{
+		padding: 100px 0;
 		overflow: hidden;
 	}
 	.bottom ul li{

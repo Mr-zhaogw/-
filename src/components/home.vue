@@ -95,6 +95,38 @@
         </div>
       </div>
     </div>
+    <div class="outTeam">
+      <div class="r" style="width:1180px;">
+        <div class="title block" style="padding-bottom:30px;">
+          <h2>核心团队</h2>
+          <p>Core team</p>
+        </div>
+        <div class="introduceBox">
+            <el-carousel indicator-position="outside" trigger="click" :autoplay="false" arrow="never">
+              <el-carousel-item v-for="item in 4" :key="item">
+                <router-link :to="{name:'detail',query:{id:1}}">
+                  <div class="box">
+                    <div class="img">
+                      <img src="../../static/imgs/p.jpg">
+                    </div>
+                    <div class="name">
+                      <span>赵磊</span>
+                      <span>创始人</span>
+                    </div>
+                    <div class="text">
+                      <div class="right">
+                        <p><span>奖项</span> —— 第九届中国设计业青年百人榜获奖者并颁发证书  -  Adobe TOP领航者之一  并颁发证书  -  作品收录意大利全国工业设计协会丛书中  -  中国最大设计平台站酷颁发 - 设计10年成就奖</p>
+                        <p><span>荣誉</span> —— 欧美Awwwards： 2012年作品曾被Awwwards设计评审机构评为全球最佳CSS网站！（中国仅此一家）由来自8个国家的国际评审团评分，作品获此次评审的最高奖项，并颁发证书。</p>
+                      </div>
+                    </div>
+                  </div>
+                </router-link>
+              </el-carousel-item>
+            </el-carousel>
+            <p class="icon"></p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -143,17 +175,172 @@ export default {
       ],
     }
   },
+  mounted(){
+    this.$nextTick(function(){
+      this.setCarouselNum();
+    })
+  },
   methods:{
-    
-
+    setCarouselNum(){
+      var cButs = document.querySelectorAll('.outTeam .introduceBox .el-carousel__indicator')
+      var pDom = document.querySelector('.outTeam .introduceBox p.icon');
+      for(var i=0;i<cButs.length;i++){
+        cButs[i].innerHTML = '<div class="inr-tabs">'
+                              +'<div class="img"><img src="../../static/imgs/p.jpg"></div>'
+                              +'<h3>赵磊</h3>'
+                              +'<P>程序架构师，技术总监</p>'
+                            +'</div>';
+        cButs[i].index = i;            
+        cButs[i].onclick =function(){
+          if(this.index === 0){
+            pDom.style.left = 125 + 'px'
+          }
+          if(this.index === 1){
+            pDom.style.left = 420 + 'px'
+          }
+          if(this.index === 2){
+            pDom.style.left = 715 + 'px'
+          }
+          if(this.index === 3){
+            pDom.style.left = 1010 + 'px'
+          }
+        }
+      }
     }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+.inr-tabs{
+  width:100%;
+}
 .tlir{
   background:#f8f8f8;
+}
+.outTeam{
+  background: #fff;
+  padding-bottom: 100px;
+}
+.outTeam .el-carousel__indicator{
+  width:25%;
+  padding:0;
+}
+.outTeam  .introduceBox p.icon{
+  position: relative;
+  bottom: 180px;
+  width: 40px;
+  height: 20px;
+  left: 125px;
+}
+.outTeam  .introduceBox p.icon:after{
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 20px solid #f6f6f6;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    content: '';
+}
+.outTeam .introduceBox .box{
+  position: relative;
+  height: 100%
+}
+.outTeam  .el-carousel__indicators--outside{
+  margin-top:30px;
+}
+.outTeam .el-carousel__indicators--outside button{
+  opacity: 1;
+  width: 100%;
+}
+.outTeam .introduceBox .el-carousel__indicator .inr-tabs{
+  text-align: center;
+}
+.outTeam .introduceBox .el-carousel__indicator .inr-tabs .img{
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.outTeam .introduceBox .el-carousel__indicator .inr-tabs h3{
+  font-size: 14px;
+  color:#444;
+}
+.outTeam .introduceBox .el-carousel__indicator .inr-tabs p{
+  color:#999;
+  font-size: 12px;
+}
+.outTeam .introduceBox .el-carousel__indicator .inr-tabs .img img{
+  width: 100%;
+  height: 100%;
+}
+.outTeam .el-carousel__indicators--outside .el-carousel__indicator:hover button{
+  opacity: 1;
+}
+.outTeam .introduceBox .box .text{
+  background:#f8f8f8;
+  position: absolute;
+  bottom: 0;
+  padding:60px 0;
+  width: 100%;
+}
+.outTeam .el-carousel__item{
+  opacity: 0;
+  filter:alpha(opacity=0);
+}
+.outTeam .el-carousel__item.is-active{
+  opacity: 1;
+  filter:alpha(opacity=100);
+}
+.outTeam .introduceBox .box .name{
+  position: absolute;
+  left: 390px;
+  top:100px;
+}
+.outTeam .introduceBox .box .name span:first-child{
+  font-size: 24px;
+  color:#333;
+}
+.outTeam .introduceBox .box .name span:last-child{
+  font-size: 12px;
+  color:#999;
+  margin-left: 10px;
+}
+.outTeam  .el-carousel__container{
+  height: 400px;
+}
+.outTeam .introduceBox .box .text .right{
+  margin-left: 390px;
+  padding-right: 40px;
+}
+.outTeam .introduceBox .box .text .right p{
+  color:#777;
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+.outTeam .introduceBox .box .text .right p span{
+  color:rgb(38,38,38);
+  font-weight: bold
+}
+.outTeam .introduceBox .box .text .right p:last-child{
+  margin: 0
+}
+.outTeam .introduceBox .box .img{
+  width:300px;
+  height: 300px;
+  position: absolute;
+  z-index: 1;
+  left: 40px;
+  bottom: 68px;
+}
+.outTeam .el-carousel__indicator.is-active .inr-tabs .img{
+  border:3px solid rgba(0,0,0,.4);
+  box-sizing: border-box;
+}
+.outTeam .introduceBox .box .img img{
+  width:100%;
+  height: 100%
 }
 .tlir .left{
   width:40%;
