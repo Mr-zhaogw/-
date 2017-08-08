@@ -1,7 +1,29 @@
 <template>
   <div class="detail">
-    人物介绍
-    sdfhlskdfh'
+    <div class="r" style="width:1080px;">
+      <div class="introduce" style="margin-bottom:1000px;">
+        ssd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
   </div>
 </template>
 <script>

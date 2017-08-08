@@ -30,7 +30,7 @@
     <div class="bgShow">
       <div class="r">
         <div class="context">
-          <img src="../../static/imgs/fixedbg.png">
+          <img src="../../static/imgs/fixedbg.png" id="img1">
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
             <div class="pro-info">
               <img :src="item.imgUrl">
               <div class="btn">
-                <el-button type="info">信息按钮</el-button>
+                <el-button type="info"><router-link :to="{name:'productDetail'}">信息按钮</router-link></el-button>
                 <el-button type="warning">警告按钮</el-button>
                 <el-button :plain="true" type="success">成功按钮</el-button>
               </div>
@@ -206,13 +206,74 @@ export default {
           }
         }
       }
-    }
+
+      $(window).scroll(function(e){
+        var scrollHeight = $(document).scrollTop();
+        console.log(scrollHeight);
+        if(scrollHeight >= 700){
+          $('.bgShow').addClass('animation');
+        }
+        if(scrollHeight >= 1600){
+          $('.product').addClass('animation');
+        }
+         if(scrollHeight >= 2800){
+          $('.bgParallax').addClass('animation');
+        }
+         if(scrollHeight >= 3500){
+          $('.us-goods').addClass('animation');
+        }
+         if(scrollHeight >= 4100){
+          $('.tlir').addClass('animation');
+        }
+         if(scrollHeight >= 4800){
+          $('.outTeam').addClass('animation');
+        }
+        if(scrollHeight >= 5100){
+          $('.bottom').addClass('animation');
+        }
+      })
+    },
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+/*----------动效----------*/
+.bgShow .context #img1{
+    opacity:0;
+    transition: all .7s ease 0s;
+    position: relative;
+}
+.product.animation .title.block h2,.product.animation .title.block p,.bgShow.animation .context #img1,.product.animation .prodect-list .box,.bgParallax.animation .title.block h2,.bgParallax.animation .title.block p,.bgParallax.animation .context img,.us-goods.animation .title.block h2,.us-goods.animation .title.block p,.us-goods.animation .context img,.tlir.animation .left,.tlir.animation .right,.outTeam.animation .el-carousel__container,.outTeam.animation .introduceBox p.icon,.outTeam.animation .title.block h2,.outTeam.animation .title.block p{
+  animation: fadeInUp .7s ease 0s  forwards;
+}
+.outTeam.animation .el-carousel__indicator:nth-of-type(1) .inr-tabs{
+  animation: fadeInUp .7s ease .2s  forwards;
+}
+.outTeam.animation .el-carousel__indicator:nth-of-type(2) .inr-tabs{
+  animation: fadeInUp .7s ease .3s  forwards;
+}
+.outTeam.animation .el-carousel__indicator:nth-of-type(3) .inr-tabs{
+  animation: fadeInUp .7s ease .4s  forwards;
+}
+.outTeam.animation .el-carousel__indicator:nth-of-type(4) .inr-tabs{
+  animation: fadeInUp .7s ease .5s  forwards;
+}
+@keyframes fadeInUp{
+  0% {
+    opacity: 0;
+    transform: translate3d(0,100%,0);
+  }
+  100%{
+    opacity: 1;
+    transform: none;
+  }
+}
+/*------------------------*/
+.el-carousel{
+  overflow-y: hidden;
+}
 .inr-tabs{
   width:100%;
 }
@@ -227,12 +288,25 @@ export default {
   width:25%;
   padding:0;
 }
+.outTeam .el-carousel__indicator:nth-of-type(1) .inr-tabs{
+  opacity: 0;
+}
+.outTeam .el-carousel__indicator:nth-of-type(2) .inr-tabs{
+  opacity: 0;
+}
+.outTeam .el-carousel__indicator:nth-of-type(3) .inr-tabs{
+  opacity: 0;
+}
+.outTeam .el-carousel__indicator:nth-of-type(4) .inr-tabs{
+  opacity: 0;
+}
 .outTeam  .introduceBox p.icon{
   position: relative;
   bottom: 180px;
   width: 40px;
   height: 20px;
   left: 125px;
+  opacity: 0;
 }
 .outTeam  .introduceBox p.icon:after{
     display: block;
@@ -309,6 +383,8 @@ export default {
 }
 .outTeam  .el-carousel__container{
   height: 400px;
+  opacity: 0;
+  transition: all .7s ease 0s;
 }
 .outTeam .introduceBox .box .text .right{
   margin-left: 390px;
@@ -346,6 +422,8 @@ export default {
   width:40%;
   float: left;
   margin-top:10%;
+  opacity: 0;
+  transition: all .7s ease 0s;
 }
 .tlir .left h2{
   font-size: 28px;
@@ -377,20 +455,24 @@ export default {
 .tlir .right{
   width:60%;
   float: left;
+  opacity: 0;
+  transition: all .7s ease 0s;
 }
 .tlir .right img{
   width:100%;
 }
 .us-goods{
   background:#fff;
-  padding:0px 0 80px 0;
+  padding:0px 0 40px 0;
 }
 .us-goods .context{
   text-align: center;
 }
 .us-goods .context img{
   width:75%;
-  height: 100%
+  height: 100%;
+  opacity: 0;
+  transition: all .7s ease 0s;
 }
 .banner:before{
     content: '';
@@ -467,6 +549,9 @@ export default {
   width:75%;
   height: auto;
   padding:0px 0 80px 0;
+  opacity: 0;
+  transition: all .7s ease 0s;
+  transform: translateY(100px);
 }
 .bgShow .context{
     /*background: rgba(0, 0, 0, .2);*/
@@ -489,20 +574,27 @@ export default {
 }
 .title.block{
   text-align: center;
-  padding:80px 0;
+  padding:80px 0 40px 0;
 }
 .title.block h2{
   color:#333;
   font-size: 26px;
+  opacity: 0;
+  transition: all .7s ease 0s;
 }
 .title.block p{
     color: #999;
     font-size: 15px;
     line-height: 30px;
-    transition: all .3s ease-out 0s;
+    opacity: 0;
+    transition: all .7s ease-out .1s;
 }
 .product .prodect-list{
   margin-top:50px;
+}
+.product .prodect-list .box{
+  opacity: 0;
+  transition: all .7s ease .1s;
 }
 .product .prodect-list .box .pro-info{
   width:100%;

@@ -14,6 +14,20 @@ export default {
   components:{
     NavView,
     Bottom
+  },
+  // mounted(){
+  //   this.goTop();
+  // },
+  watch:{
+    $route(){
+      window.location.reload();
+      this.goTop();
+    }
+  },
+  methods:{
+    goTop(){
+      document.getElementsByTagName('body')[0].scrollTop=0;
+    }
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
 	<div class="bottom">
-		<div class="r bot-text" style="width:1180px;">
+		<div class="r bot-text" style="width:1180px;" v-if="$route.name === 'home'">
 			<ul class="fn-clear">
 				<li class="bottom-first">
 					<h2>联系我们</h2>
@@ -25,7 +25,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="copy">
+		<div class="copy" :class="$route.name === 'home'?'bottomCol':''">
 			<div class="r" style="width:1180px;">
 				<P>COPYRIGHT (©) 2017  魔艺极速建站 - UEMO网站模板- 优艺客旗下品牌 - 网站模板 - 智能建站 - 企业建站. </P>
 			</div>
@@ -43,12 +43,35 @@
 	}
 </script>
 <style>
+	.bottom.animation ul li.bottom-second{
+		animation: fadeInUp .7s ease 0s  forwards;
+	}
+	.bottom.animation ul li.bottom-third{
+		animation: fadeInUp .7s ease .1s  forwards;
+	}
+	.bottom.animation ul li.bottom-four{
+		animation: fadeInUp .7s ease .2s  forwards;
+	}
+
+	@keyframes fadeInUp{
+  0% {
+    opacity: 0;
+    transform: translate3d(0,100%,0);
+  }
+  100%{
+    opacity: 1;
+    transform: none;
+  }
+}
 	.bottom{
 		background:#f8f8f8;
 	}
 	.bottom .copy{
-		background:#fff;
+		background:#f8f8f8;
 		padding:10px 0;
+	}
+	.bottom .bottomCol{
+		background:#fff;
 	}
 	.bottom .copy p{
 		text-align: center;
@@ -74,6 +97,7 @@
 	}
 	.bottom ul li.bottom-second{
 		width:20%;
+		opacity: 0;
 	}
 	.bottom ul li.bottom-second p{
 		font-size: 16px;
@@ -92,6 +116,7 @@
 	}
 	.bottom ul li.bottom-third{
 		width:30%;
+		opacity: 0
 	}
 	.bottom ul li.bottom-third h4{
 		font-size: 15px;
@@ -106,6 +131,7 @@
 	}
 	.bottom ul li.bottom-four{
 		color:#666;
+		opacity: 0
 	}
 	.bottom ul li.bottom-four p.yb{
 		margin: 50px 0 10px 0

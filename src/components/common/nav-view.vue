@@ -6,7 +6,7 @@
 					<img src="../../../static/imgs/1442417914556.png">
 				</div>
 				<div class="nav-text">
-						<el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal">
+						<el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" :class="$route.name==='detail' || $route.name==='productDetail'?'navCol':''">
 							  <el-menu-item index="1"><router-link :to="{name:'home'}">首页</router-link></el-menu-item>
 							  <el-menu-item index="5"><router-link :to="{name:'detail'}">免费试用</router-link></el-menu-item>
 							  <el-menu-item index="6">推荐案例</el-menu-item>
@@ -53,6 +53,13 @@
 					divDome.className = ''
 				}
 			})
+
+			var navDom = document.querySelectorAll('.nav-view .nav .nav-text ul li.el-menu-item a');
+				for(var i=0;i<navDom.length;i++){
+					navDom[i].onmouseover = function(){
+
+					}
+				}
 		}
 	}
 </script>
@@ -62,6 +69,15 @@
   	z-index: 10;
   	/*transition: all .6s cubic-bezier(.215, .61, .355, 1) 0s;*/
   }
+  #nav-view .nav .nav-text .el-menu.navCol{
+  	background:#fff ;
+  }
+  .nav-text .el-menu.navCol .el-menu-item:hover{
+   	background:#FFF;
+   }
+  .nav-text .el-menu.navCol .el-submenu:hover .el-submenu__title{
+   	background:#FFF;
+   }
  #nav-view .nav{
  		padding:20px 0;
  		/*background:rgb(248,248,248);*/
