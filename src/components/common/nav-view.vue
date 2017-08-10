@@ -3,7 +3,7 @@
 		<div class="nav">
 			<div class="r fn-clear">
 				<div class="logo">
-					<img src="../../../static/imgs/1442417914556.png">
+					<img src="../../../static/imgs/1442417914556.png" style="height:100%">
 				</div>
 				<div class="nav-text">
 						<el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" :class="$route.name==='detail' || $route.name==='productDetail'?'navCol':''">
